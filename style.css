@@ -1,0 +1,134 @@
+#main-message, #dynamic-message {
+    font-weight: bold;
+    color: #ff4757;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background:linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+.hearts{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+.heart{
+    position: absolute;
+    will-change: transform, opacity;
+
+    font-size: 20px;
+    opacity: 0.5;
+    animation: float 8s linear infinite;
+}
+
+/* Make some hearts rotate */
+.heart:nth-child(2n) {
+    animation: float 5s infinite, rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Add some sparkle to certain hearts */
+.heart:nth-child(7n) {
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.7));
+}
+
+.cointainer{
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 80%;
+    animation: fadeIn 2s ease-in-out;
+    box-shadow:0 8px 32px rgba(0,0,0,0.1);
+    transition:transform 0.3s;
+}
+h1{
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    animation: heartbeat 1.5s infinite;
+
+}
+p{
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+button{
+    background-color: #ff6b6b;
+    border: none;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+button:hover{
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+button:active {
+    background-color: #ff4757;
+    transform: scale(0.98);
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes heartbeat {
+    0%, 20%, 50%, 80%, 100% {
+        transform: scale(1);
+    }
+    10%, 30%, 70% {
+        transform: scale(1.1);
+    }
+}
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(20px) rotate(360deg);
+        opacity: 0;
+    }
+}
+@media(max-width:768px){
+    h1{
+        font-size: 2em;
+    }
+    p{
+        font-size: 1em;
+    }
+}
