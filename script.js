@@ -1,25 +1,42 @@
-const heartsCointainer = document.querySelector('.hearts');
+const heartsContainer = document.querySelector('.hearts');
 const heartCount = 100;
-const heartSize = 50; // Size of the heart in pixels
-const colors = ['❤', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍'];
+const colors = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍'];
+
 function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
-    heart.innerHTML ="💖";
+    
+    // Select a random color from the array
+    const randomColorIndex = Math.floor(Math.random() * colors.length);
+    heart.innerHTML = colors[randomColorIndex];
+    
+    // Positioning and animation
     heart.style.left = Math.random() * 100 + 'vw';
     heart.style.bottom = '-20px';
     heart.style.animationDuration = Math.random() * 5 + 3 + 's';
-    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-    heartsCointainer.appendChild(heart);
-    const heartSize = Math.random() * 30 + 20; 
+    
+    // Random sizing
+    const heartSize = Math.random() * 30 + 20;
     heart.style.fontSize = heartSize + 'px';
-    heart.style.zIndex = Math.floor(Math.random() * 3); 
+    
+    // Other styling
+    heart.style.zIndex = Math.floor(Math.random() * 3);
     heart.style.transform = `rotate(${Math.random() * 360}deg)`;
     heart.style.opacity = Math.random() * 0.5 + 0.3;
     heart.style.transition = 'transform 0.5s ease-in-out, opacity 0.5s ease-in-out';
-        setTimeout(() => {
+    heart.style.position = 'absolute';
+    
+    heartsContainer.appendChild(heart);
+    
+    // Remove heart after animation
+    setTimeout(() => {
         heart.remove();
-     }, 100000);
+    }, 60000); // Reduced from 100000 to 10000 (10 seconds)
+}
+
+// Create multiple hearts
+for (let i = 0; i < heartCount; i++) {
+    setTimeout(createHeart, i * 300); // Stagger creation
 }
 createHeart()
  
