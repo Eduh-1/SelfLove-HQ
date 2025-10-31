@@ -52,7 +52,8 @@ const nightPalettes = [
   ['#081229','#142033','#2a2740','#3b2b5d']  // midnight
 ];
 /* ---------- Ambient calm stream audio ---------- */
-const music = new Audio("https://cdn.pixabay.com/download/audio/2022/10/24/audio_1f19070f70.mp3?filename=gentle-stream-ambient-124997.mp3");
+const music = new Audio("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Field_Recording/Field_Recording_-_Water_Stream/Field_Recording_-_Water_Stream_-_01_Water_Stream.mp3");
+
 music.loop = true;
 music.volume = 0.25;
 
@@ -375,3 +376,4 @@ window.addEventListener('load', () => {
     } else populateVoiceList();
   }
 });
+
